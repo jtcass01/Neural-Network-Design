@@ -6,6 +6,7 @@ class Perceptron(object):
     """
     Implementation of network described on pages 3-3:3-8
 
+    Author: Jacob Taylor Cassady
     """
     def __init__(self, W, b, transfer_function):
         self.Weights = W

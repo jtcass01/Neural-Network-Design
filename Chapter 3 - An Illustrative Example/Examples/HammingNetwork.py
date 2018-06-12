@@ -5,6 +5,8 @@ from transfer_functions import *
 class HammingNetwork(object):
     """
     Implementation of network described on pages 3-8:3-12
+
+    Author: Jacob Taylor Cassady
     """
     def __init__(self, prototypes):
         self.feedForwardLayer = self.FeedFowardLayer(W=prototypes)

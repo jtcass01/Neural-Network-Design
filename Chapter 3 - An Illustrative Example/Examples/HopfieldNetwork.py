@@ -1,20 +1,26 @@
 import numpy as np
 
+from transfer_functions import *
+
 class HopfieldNetwork(object):
-    def __init__(self, W = np.array([[0.2, 0, 0], [0, 1.2, 0], [0, 0, 0.2]]), transfer_function = satlins, bias=np.array([0.9, 0, 0.9])):
+    """
+    Implementation of network described on pages 3-12:3-14
+
+    Author: Jacob Taylor Cassady
+    """
+    def __init__(self, W = np.array([[0.2, 0, 0], [0, 1.2, 0], [0, 0, 0.2]]), transfer_function = satlins, bias=np.array([0.9, 0, -0.9])):
         self.Weights = W.reshape((3, 3))
         self.bias = bias.reshape((3, 1))
         self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
 
     def classify(self, initial_a):
         a2 = self.transfer_function(self.Weights.dot(initial_a) + self.bias)
-
         while True:
             a3 = self.transfer_function(self.Weights.dot(a2) + self.bias)
             if a2.all() != a3.all():
                 a2 = a3
             else:
-                return a2
+                return a3
 
 if __name__ == "__main__":
     test_obj = np.array([-1, -1, -1]).reshape((3, 1))
