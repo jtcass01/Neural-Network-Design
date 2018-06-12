@@ -50,3 +50,4 @@ if __name__ == "__main__":
     print("I am going to skip the test of different input patterns as the two prototypes are different in 2/3s of the their presentations.  I fear any tests my sully my understanding as I am not sure which result I should be getting to verify.",
           "The hamming network seems to have the simplest implementation as it's weights and biases are defined by the prototypes themselves without the use of much math to calculate complex things such as the eigen matrix in the Hopfield Network",
           "Or the decision boundary within the perceptron network.")
+    print("Additionally, it is important to note the Hamming network is designed to only solve problems where each element in the input vector has only two possible values [e.g. 1 or -1].")
