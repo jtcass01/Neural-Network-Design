@@ -26,12 +26,13 @@ class HammingNetwork(object):
         def __init__(self, W = np.array([[1, -1/2], [-1/2, 1]]), transfer_function = poslin):
             self.Weights = W
             self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
+            self.bias = 0
 
         def propagate(self, initial_a):
-            a2 = self.transfer_function(self.Weights.dot(initial_a))
+            a2 = self.transfer_function(self.Weights.dot(initial_a) + self.bias)
 
             while True:
-                a3 = self.transfer_function(self.Weights.dot(a2))
+                a3 = self.transfer_function(self.Weights.dot(a2) + self.bias)
                 if a2.all() != a3.all():
                     a2 = a3
                 else:
