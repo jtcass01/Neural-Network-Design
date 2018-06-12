@@ -3,8 +3,9 @@
     "",
     "\\Chapter 2 - Neuron Model and Network Architectures",
     "\\Chapter 2 - Neuron Model and Network Architectures\\Exercises",
-    "\\Chapter 2 - Neuron Model and Network Architectures\\Solved Problems"
+    "\\Chapter 3 - An Illustrative Example",
+    "\\Chapter 3 - An Illustrative Example\\Examples"
   ],
-  "SelectedNode": "\\Chapter 2 - Neuron Model and Network Architectures\\Exercises\\e2_6.py",
+  "SelectedNode": "\\Chapter 3 - An Illustrative Example\\Examples\\HopfieldNetwork.py",
   "PreviewInSolutionExplorer": false
 }
