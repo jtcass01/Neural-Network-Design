@@ -34,12 +34,13 @@ def vectorized_implementation(p, W1=[2,1], b1=[2,1], W2=[1,-1], b2=0):
     W2 = np.array(W2).reshape((2, 1))
     W2 = W2.repeat(a1.shape[0], axis=1)
 
-    b2 = 0
+    b2 = np.array(b2).reshape((1,1))
     a2 = layer(p=a1, W=W2, b=b2, f=purelin)
+
     return a2
 
 if __name__ == "__main__":
-    p = (np.array(range(-30, 30, 1)) / 10).reshape(60, 1)
+    p = (np.array(range(-3000, 3000, 1)) / 1000).reshape(6000, 1)
     W1=np.array([2,1])
     b1=np.array([2,1])
     W2=np.array([1,-1])
@@ -88,14 +89,20 @@ if __name__ == "__main__":
     plt.xlabel("p")
     plt.ylabel("a1_2")
     plt.show()
-"""
+
     n2_1 = list([])
     a2_1 = list([])
+
     for i in range(len(a1_1)):
-        n = calculate_net_input(p=np.array([a_1[i], a_2[i]]), W=np.array(W2), b=b2)[0]
-        a = satlin(n)
+        n = calculate_net_input(p=np.array([a1_1[i], a1_2[i]]).reshape((2, 1)), W=W2, b=b2)[0]
+        a = purelin(n)
         n2_1.append(n)
         a2_1.append(a)
     n2_1 = np.array(n2_1)
-    a2_1 = np.array(a2_1)"""
+    a2_1 = np.array(a2_1)
+
+    plt.plot(p, a2_1)
+    plt.xlabel("p")
+    plt.ylabel("a2_1")
+    plt.show()
 
