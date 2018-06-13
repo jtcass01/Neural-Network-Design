@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Chapter 2 - Neuron Model and Network Architectures",
-    "\\Chapter 2 - Neuron Model and Network Architectures\\Exercises",
     "\\Chapter 3 - An Illustrative Example",
-    "\\Chapter 3 - An Illustrative Example\\Examples"
+    "\\Chapter 3 - An Illustrative Example\\Examples",
+    "\\Chapter 3 - An Illustrative Example\\Exercises"
   ],
-  "SelectedNode": "\\Chapter 3 - An Illustrative Example\\Examples\\HopfieldNetwork.py",
+  "SelectedNode": "\\Chapter 3 - An Illustrative Example\\Exercises\\e3_6.py",
   "PreviewInSolutionExplorer": false
 }

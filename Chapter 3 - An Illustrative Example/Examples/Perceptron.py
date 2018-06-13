@@ -11,10 +11,10 @@ class Perceptron(object):
 
     Author: Jacob Taylor Cassady
     """
-    def __init__(self, W, b, transfer_function):
+    def __init__(self, W, b, transfer_function=hardlims):
         self.Weights = W
         self.bias = b
-        self.transfer_function = transfer_function
+        self.transfer_function = np.vectorize(transfer_function)
     def classify(self, prototype):
         return self.transfer_function(self.Weights.dot(prototype) + self.bias)
 

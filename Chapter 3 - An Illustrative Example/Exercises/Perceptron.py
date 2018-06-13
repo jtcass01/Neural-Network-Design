@@ -6,14 +6,18 @@ class Perceptron(object):
     """
     Implementation of network described on pages 3-3:3-8
 
+    An output of 1 means the input p is orthogonal of the decision boundary and points in the same direction as the weight.
+    An oupout of -1 means the input p points in the opposite direction of the weight.
+
     Author: Jacob Taylor Cassady
     """
     def __init__(self, W, b, transfer_function=hardlims):
         self.Weights = W
         self.bias = b
-        self.transfer_function = transfer_function
+        self.transfer_function = np.vectorize(transfer_function)
     def classify(self, prototype):
-        return self.transfer_function(self.Weights.dot(prototype) + self.bias)
+        net_input = self.Weights.dot(prototype) + self.bias
+        return self.transfer_function(net_input)
 
 
 if __name__ == "__main__":
