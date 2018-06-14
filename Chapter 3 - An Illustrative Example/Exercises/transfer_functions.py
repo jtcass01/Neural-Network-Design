@@ -71,6 +71,6 @@ def poslin(n):
 
 def compet(n):
     """
-    Competitive - Softmax function, must work on implementation
+    Competitive
     """
     return (n > 0).astype(np.int)

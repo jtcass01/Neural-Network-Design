@@ -19,6 +19,7 @@ class Perceptron(object):
         net_input = self.Weights.dot(prototype) + self.bias
         return self.transfer_function(net_input)
 
+
 if __name__ == "__main__":
     # prototype = [shape, texture, weight] as a column vector
     orange_prototype = np.array([1, -1, -1]).reshape((3, 1))
@@ -26,9 +27,10 @@ if __name__ == "__main__":
 
     # Weight matrix and bias determined by decision boundary.
     decision_boundary = (orange_prototype != apple_prototype).astype(np.int).reshape((1, len(orange_prototype)))
+    print(decision_boundary)
     bias = 0
 
-    fruit_perceptron = Perceptron(W=decision_boundary, b=bias, transfer_function=hardlims)
+    fruit_perceptron = Perceptron(W=decision_boundary, b=bias)
 
     test_prototype = np.array([-1, -1, -1]).reshape((3, 1))
     print(fruit_perceptron.classify(test_prototype))
