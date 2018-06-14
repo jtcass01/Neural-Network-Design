@@ -20,22 +20,35 @@ class HammingNetwork(object):
     class FeedFowardLayer(object):
         def __init__(self, W, transfer_function = purelin):
             self.Weights = W
-            self.bias = np.array(self.Weights.shape[1]).repeat(self.Weights.shape[0], axis=0).reshape((self.Weights.shape[0], 1))
+            self.bias = np.array(self.Weights.shape[0]).repeat(self.Weights.shape[0], axis=0).reshape((self.Weights.shape[0], 1))
             self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
         def propagate(self, obj):
             return self.transfer_function(self.Weights.dot(obj) + self.bias)
 
     class RecurrentLayer(object):
-        def __init__(self, W = np.array([[1, -1/2], [-1/2, 1]]), transfer_function = poslin):
-            self.Weights = W
+        def __init__(self, W = None, transfer_function = poslin):
+            if W is None:
+                self.Weights = W
+            else:
+                self.Weights = None
             self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
-            self.bias = 0
 
         def propagate(self, initial_a):
-            a2 = self.transfer_function(self.Weights.dot(initial_a) + self.bias)
+            if self.Weights is None:
+                s = initial_a.shape[0]
+                epsilon = 1 / (s - 1)
+                epsilon -= 0.01
+                epsilon *= -1
+                self.Weights = np.ones((s, s))
+                for i in range(s):
+                    for j in range(s):
+                        if i != j:
+                            self.Weights[i][j] = epsilon
+
+            a2 = self.transfer_function(self.Weights.dot(initial_a))
 
             while True:
-                a3 = self.transfer_function(self.Weights.dot(a2) + self.bias)
+                a3 = self.transfer_function(self.Weights.dot(a2))
                 if a2.all() != a3.all():
                     a2 = a3
                 else:
