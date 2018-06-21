@@ -4,8 +4,10 @@
     "\\Chapter 2 - Neuron Model and Network Architectures",
     "\\Chapter 3 - An Illustrative Example",
     "\\Chapter 3 - An Illustrative Example\\Examples",
-    "\\Chapter 3 - An Illustrative Example\\Exercises"
+    "\\Chapter 3 - An Illustrative Example\\Exercises",
+    "\\Chapter 4 - Perceptron Learning Rule",
+    "\\Chapter 4 - Perceptron Learning Rule\\Examples"
   ],
-  "SelectedNode": "\\Chapter 3 - An Illustrative Example\\Exercises\\e3_7.py",
+  "SelectedNode": "\\Chapter 4 - Perceptron Learning Rule\\Examples\\decision_boundary.py",
   "PreviewInSolutionExplorer": false
 }
