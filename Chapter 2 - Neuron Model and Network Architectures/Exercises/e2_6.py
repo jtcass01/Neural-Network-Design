@@ -42,7 +42,7 @@ def vectorized_implementation(p, W1=[2,1], b1=[2,1], W2=[1,-1], b2=0):
 if __name__ == "__main__":
     p = (np.array(range(-3000, 3000, 1)) / 1000).reshape(6000, 1)
     W1=np.array([2,1])
-    b1=np.array([2,1])
+    b1=np.array([2,-1])
     W2=np.array([1,-1])
     b2=0
 
