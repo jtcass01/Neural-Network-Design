@@ -5,7 +5,7 @@ Consider the classification problem defined below:
     { p_2 = [0, 0].T | t_2 = 1 }
     { p_3 = [1, -1].T | t_3 = 1 }
     { p_4 = [1, 0].T | t_4 = 0 }
-    { p_5 = [0, 1].T | t_1 = 0 }
+    { p_5 = [0, 1].T | t_5 = 0 }
 
 - Draw a graph of the data points, labeled according to their targets.
 Is this problem solvable with the network you defined in part (i)? Why or why not?
