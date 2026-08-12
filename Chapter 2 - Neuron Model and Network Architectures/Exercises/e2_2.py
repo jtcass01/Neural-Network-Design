@@ -1,6 +1,6 @@
 import numpy as np
 
-from transfer_functions import *
+from nnd.transfer_functions import *
 
 """
 Consider a single-input neuron with a bias.  We would like the output to be -1 for inputs less than 3 and +1 fo rinputs greater than or equal to 3.

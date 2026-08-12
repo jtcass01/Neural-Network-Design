@@ -17,9 +17,8 @@ viii. Calculate the network output for the Hopfield network for the input vector
 import numpy as np
 import matplotlib.pyplot as plt
 
-from Perceptron import Perceptron
-from HammingNetwork import HammingNetwork
-from HopfieldNetwork import HopfieldNetwork
+from nnd import HammingNetwork, HopfieldNetwork, Perceptron
+from nnd.transfer_functions import hardlims
 
 if __name__ == "__main__":
     print("We have the following two prototype vectors:",
@@ -41,7 +40,7 @@ if __name__ == "__main__":
     Weights = np.array([1, 0])
     bias = 0
 
-    e3_6_perceptron = Perceptron(W = Weights, b = bias)
+    e3_6_perceptron = Perceptron(W = Weights, b = bias, transfer_function = hardlims)
 
     print("p1", p1, "classification:", e3_6_perceptron.classify(p1))
     print("p2", p2, "classification:", e3_6_perceptron.classify(p2))

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nnd"
+version = "0.2.0"
+description = "Python notes and exercise solutions for the textbook Neural Network Design (Hagan, Demuth, Beale, De Jesus)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Jacob Taylor Cassady" }]
+dependencies = ["numpy>=1.20", "matplotlib>=3.3"]
+
+[project.urls]
+Homepage = "https://github.com/jtcass01/Neural-Network-Design"
+
+[tool.setuptools]
+packages = ["nnd"]

@@ -1,6 +1,6 @@
 import numpy as np
 from p2_1 import calculate_net_input
-from transfer_functions import *
+from nnd.transfer_functions import *
 
 """
 Given a two-input neuron with the following parameters: b = 1.2, W = [3,2], and p = [-5, 6].T, calculate the neuron output for the follwing functions:

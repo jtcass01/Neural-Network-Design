@@ -1,15 +1,21 @@
 import numpy as np
 
-# Transfer functions as defined by Neural Network Toolbox for MATLAB 
+# Transfer functions as defined by Neural Network Toolbox for MATLAB
 
 def hardlim(n):
     """
     Hard Limit
     """
-    if n < 0:
-        return 0
-    else:
-        return 1
+    try:
+        if n < 0:
+            return 0
+        else:
+            return 1
+    except ValueError:
+        if n.all() < 0:
+            return 0
+        else:
+            return 1
 
 def hardlims(n):
     """
@@ -73,4 +79,4 @@ def compet(n):
     """
     Competitive - Softmax function, must work on implementation
     """
-    pass
+    return (n > 0).astype(int)

@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from transfer_functions import *
+from nnd.transfer_functions import *
 
 """
 Sketch the neuron response (plot activation versus p for -2<p<2) for the follwing cases:

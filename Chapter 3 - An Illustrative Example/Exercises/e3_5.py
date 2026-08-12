@@ -16,8 +16,8 @@ and to output a -1 when either of the following vectors are input to the network
 import numpy as np
 import matplotlib.pyplot as plt
 
-from transfer_functions import hardlims, hardlim
-from Perceptron import Perceptron
+from nnd import Perceptron
+from nnd.transfer_functions import hardlims, hardlim
 
 
 if __name__ == "__main__":
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     print("Weights: ", W, "bias", b, "Weight and bias calculated by finding the orthogonal line to the decision boundary sketched above",
           "\n\tWeight associated to slope, bias associated to y intercept in the equation y=mx+b")
 
-    e3_5_perceptron = Perceptron(W=W, b=b)
+    e3_5_perceptron = Perceptron(W=W, b=b, transfer_function=hardlims)
 
     o_1_1 = np.array([-1, 0]).reshape((2, 1))
     o_1_2 = np.array([1, 2]).reshape((2, 1))

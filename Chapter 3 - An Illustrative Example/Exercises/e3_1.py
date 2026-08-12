@@ -13,9 +13,8 @@ iv.  Test the operation of your networks by applying several different input pat
 
 import numpy as np
 
-from Perceptron import Perceptron
-from HammingNetwork import HammingNetwork
-from HopfieldNetwork import HopfieldNetwork
+from nnd import HammingNetwork, HopfieldNetwork, Perceptron
+from nnd.transfer_functions import hardlims
 
 banana_prototype = np.array([-1, 1, -1]).reshape((3, 1))
 pineapple_prototype = np.array([-1, -1, 1]).reshape((3, 1))
@@ -32,7 +31,7 @@ if __name__ == "__main__":
     print("\tNote: Decision boundary is a weight that points towards that of a banana.")
     decision_boundary = np.array([0, 1, -1])
     
-    bp_perceptron = Perceptron(W=decision_boundary, b=0)
+    bp_perceptron = Perceptron(W=decision_boundary, b=0, transfer_function=hardlims)
     print("\t", "near_pineapple", bp_perceptron.classify(near_pineapple))
     print("\t", "near_banana", bp_perceptron.classify(near_banana))
 
@@ -42,7 +41,7 @@ if __name__ == "__main__":
     print("\t", "near_banana", bp_hamming.classify(near_banana))
 
     print("\niii. Design a Hopfield network to recognize thse patterns.")
-    bp_hopfield = HopfieldNetwork(W = np.array([[0.2, 0, 0], [0, 1.2, 0], [0, 0, 1.2]]), bias=np.array([-0.9, 0, 0]))    
+    bp_hopfield = HopfieldNetwork(weights = np.array([[0.2, 0, 0], [0, 1.2, 0], [0, 0, 1.2]]), bias=np.array([-0.9, 0, 0]))
     print("\t", "near_pineapple", bp_hopfield.classify(near_pineapple))
     print("\t", "near_banana", bp_hopfield.classify(near_banana))
 

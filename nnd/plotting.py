@@ -5,10 +5,11 @@ def plot_2d_prototypes(p1, p0):
     print("p1", p1[:, 0], p1.shape)
     print("p0", p0, p0.shape)
 
-    plt.scatter(p1[:, 0], p1[:, 1], cmap="blue")
-    plt.scatter(p0[:, 0], p0[:, 1], cmap="red")
+    plt.scatter(p1[:, 0], p1[:, 1], color="blue", label="target 1")
+    plt.scatter(p0[:, 0], p0[:, 1], color="red", label="target 0")
     plt.xlabel("X1")
     plt.ylabel("X2")
+    plt.legend()
     plt.show()
 
 def display_network(neural_network):

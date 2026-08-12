@@ -1,6 +1,6 @@
 import numpy as np
 
-from transfer_functions import *
+from nnd.transfer_functions import compet, purelin, poslin
 
 class HammingNetwork(object):
     """
@@ -21,17 +21,14 @@ class HammingNetwork(object):
         def __init__(self, W, transfer_function = purelin):
             self.Weights = W
             self.bias = np.array(self.Weights.shape[0]).repeat(self.Weights.shape[0], axis=0).reshape((self.Weights.shape[0], 1))
-            self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
+            self.transfer_function = np.vectorize(transfer_function, otypes=[float])
         def propagate(self, obj):
             return self.transfer_function(self.Weights.dot(obj) + self.bias)
 
     class RecurrentLayer(object):
         def __init__(self, W = None, transfer_function = poslin):
-            if W is None:
-                self.Weights = W
-            else:
-                self.Weights = None
-            self.transfer_function = np.vectorize(transfer_function, otypes=[np.float])
+            self.Weights = W
+            self.transfer_function = np.vectorize(transfer_function, otypes=[float])
 
         def propagate(self, initial_a):
             if self.Weights is None:
@@ -53,19 +50,3 @@ class HammingNetwork(object):
                     a2 = a3
                 else:
                     return a3
-
-
-if __name__ == "__main__":
-    # prototype = [shape, texture, weight] as a column vector
-    orange_prototype = np.array([1, -1, -1]).reshape((3, 1))
-    apple_prototype = np.array([1, 1, -1]).reshape((3, 1))
-    prototypes = np.array([orange_prototype.T[0], apple_prototype.T[0]])
-    
-    test_fruit = np.array([-1, -1, -1]).reshape((3, 1))
-
-    hammingFruitClassifier = HammingNetwork(prototypes=prototypes)
-    print(hammingFruitClassifier.classify(obj=test_fruit))
-
-
-
-

@@ -8,8 +8,8 @@ Use hardlim activation
 import numpy as np
 import matplotlib.pyplot as plt
 
-from transfer_functions import hardlim
-from Perceptron import Perceptron
+from nnd import Perceptron
+from nnd.transfer_functions import hardlim
 
 # target = 0
 and_00 = np.array([0, 0]).reshape((2, 1))

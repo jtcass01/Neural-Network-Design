@@ -16,8 +16,8 @@ v.   Calculate the network output for the Hamming network with the input vector 
 
 import numpy as np
 
-from HammingNetwork import HammingNetwork
-from Perceptron import Perceptron
+from nnd import HammingNetwork, Perceptron
+from nnd.transfer_functions import hardlims
 
 p_1 = np.array([1, 0.5]).reshape((2, 1))
 p_2 = np.array([2, 1]).reshape((2, 1))
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     print("\niii. Calculate the network output for the following input.  Is the network response (decision) reasonable? Explain.",
           "\n\tp_test = [1, 0].T")
     p_test = np.array([1, 0]).reshape((2, 1))
-    test_perceptron = Perceptron(W=W, b=b)
+    test_perceptron = Perceptron(W=W, b=b, transfer_function=hardlims)
     print("Classification = ", test_perceptron.classify(p_test), "\nYes this is reasonable as p_test is closer to p_1 than p_2")
 
     print("\niv.  Design a Hamming network to recognize the two prototype vectors above.")

@@ -6,12 +6,12 @@ The input to a single-input neuron is 2.0, its weight is 2.3 and its bias is -3.
     ii. What is the neuron output?
 """
 
-def calculate_net_input(W=2.3, p=2.0, b=-3):
+def calculate_net_input(W=np.array(2.3), p=np.array(2.0), b=-3):
     return W.dot(p) + b
 
 if __name__ == "__main__":
     # i.
-    print("i.", calculate_net_input(w=2.3, p=2.0, b=-3))
+    print("i.", calculate_net_input(W=np.array(2.3), p=np.array(2.0), b=-3))
 
     # ii.
     print("The output cannot be determined because the transfer function is not specified.")

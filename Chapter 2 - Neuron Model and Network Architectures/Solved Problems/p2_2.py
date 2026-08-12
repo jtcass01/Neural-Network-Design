@@ -1,4 +1,4 @@
-from transfer_functions import *
+from nnd.transfer_functions import *
 from p2_1 import calculate_net_input
 
 """

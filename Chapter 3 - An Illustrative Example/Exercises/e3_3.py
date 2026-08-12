@@ -13,7 +13,7 @@ iii. What other prototypes will this network converge to, and what regions of th
 import numpy as np
 import matplotlib.pyplot as plt
 
-from HopfieldNetwork import HopfieldNetwork
+from nnd import HopfieldNetwork
 
 if __name__ == "__main__":
     print("Consider a Hopfield network, with the follwing weight and bias.", "\n\tW = [[1, -1], [-1, 1]]  b = [0, 0].T")

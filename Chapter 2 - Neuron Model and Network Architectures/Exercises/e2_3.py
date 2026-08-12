@@ -1,5 +1,5 @@
 import numpy as np
-from transfer_functions import *
+from nnd.transfer_functions import *
 
 """Given a two-input neuron with the folwing weight matrix and input vector: W = [3, 2] and p = [-5, 7], we would like to have an output of 0.5.
 Do you suppose that there is a combination of bias and transfer function that might allow this?

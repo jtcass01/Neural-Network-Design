@@ -11,14 +11,14 @@ Where:
 import numpy as np
 import matplotlib.pyplot as plt
 
-from transfer_functions import *
+from nnd.transfer_functions import *
 
 def calculate_net_input(W=np.array(1), p=np.array(2.0), b=-3):
     return W.dot(p) + b
 
 def layer(p, W, b, f):
     n = calculate_net_input(W=W, p=p, b=b)
-    f = np.vectorize(f, otypes=[np.float])
+    f = np.vectorize(f, otypes=[float])
     return f(n)
 
 def vectorized_implementation(p, W1=[2,1], b1=[2,1], W2=[1,-1], b2=0):

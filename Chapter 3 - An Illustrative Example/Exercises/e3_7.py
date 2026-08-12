@@ -13,7 +13,7 @@ iv.  Sketch the decision boundaries for this network. Explain how you determined
 
 import numpy as np
 import matplotlib.pyplot as plt
-from HammingNetwork import HammingNetwork
+from nnd import HammingNetwork
 
 if __name__ == "__main__":
     print("We want to design a Hamming network to recognize the following prototype vectors:",

@@ -12,8 +12,8 @@ iv.  Plot the input from part iii. in your diagram from part ii, verify that it 
 
 import numpy as np
 
-from transfer_functions import hardlims
-from Perceptron import Perceptron
+from nnd import Perceptron
+from nnd.transfer_functions import hardlims
 
 if __name__ == "__main__":
     print("Consider the following perceptron network.",

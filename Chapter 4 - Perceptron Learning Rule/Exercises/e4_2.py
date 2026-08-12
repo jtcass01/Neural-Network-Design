@@ -18,8 +18,9 @@ Consider the classification problem defined below:
 """
 
 import numpy as np
-from utilities import *
-from Perceptron import Perceptron
+import matplotlib.pyplot as plt
+
+from nnd import Perceptron, classify_prototypes, display_network, plot_2d_prototypes, prototype_pairs
 
 if __name__ == "__main__":
     print("Consider the classification problem defined below:",
@@ -31,29 +32,25 @@ if __name__ == "__main__":
     # Prototype 1
     p_1 = np.array([-1, 1]).reshape((2, 1))
     t_1 = np.array([1]).reshape((1, 1))
-    p_t_1 = np.array([p_1, t_1])
 
     # Prototype 2
     p_2 = np.array([-1, -1]).reshape((2, 1))
     t_2 = np.array([1]).reshape((1, 1))
-    p_t_2 = np.array([p_2, t_2])
 
     # Prototype 3
     p_3 = np.array([0, 0]).reshape((2, 1))
     t_3 = np.array([0]).reshape((1, 1))
-    p_t_3 = np.array([p_3, t_3])
 
     # Prototype 4
     p_4 = np.array([1, 0]).reshape((2, 1))
     t_4 = np.array([0]).reshape((1, 1))
-    p_t_4 = np.array([p_4, t_4])
 
     p0 = np.array([p_3, p_4]).reshape((2, 2))
     p1 = np.array([p_1, p_2]).reshape((2, 2))
 
     plot_2d_prototypes(p0=p0, p1=p1)
 
-    prototypes = np.array([p_t_1, p_t_2, p_t_3, p_t_4])
+    prototypes = prototype_pairs((p_1, t_1), (p_2, t_2), (p_3, t_3), (p_4, t_4))
 
     print("\n(i.)   Design a single-neuron perceptron to solve this problem.  Design the network graphically by choosing weight vectors that are orthogonal to the decision boundaries.")
     e4_2_perceptron = Perceptron(number_of_neurons=1, input_size=2)
@@ -75,12 +72,12 @@ if __name__ == "__main__":
     p_8 = np.array([-1, -2]).reshape((2, 1))
 
     prototypes_2 = np.array([p_5, p_6, p_7, p_8]).reshape((4, 2))
-    classify_prototypes(neural_network=e4_2_perceptron, prototypes=prototypes)
+    classify_prototypes(neural_network=e4_2_perceptron, prototypes=prototypes_2)
 
     print("\n(iv.)  Which of the vectors in part (iii) will always be classified the same way, regardless of the solution values for W and b?  Which may vary depending on the solution?",
           "\n\tWhy?")
 
-    plt.scatter(prototypes_2[:, 0], prototypes_2[:, 1], cmap="yellow")
+    plt.scatter(prototypes_2[:, 0], prototypes_2[:, 1], color="gold", label="unlabeled (part iii)")
     plot_2d_prototypes(p0=p0, p1=p1)
 
     print("\tAs you can see from the previous plot, p_5 and p_6 will always be classified the same since they are so far away from any possible decision boundaries.  Pivoting the slope of the decision boundary will never cross these points while still being a successful solution.")
